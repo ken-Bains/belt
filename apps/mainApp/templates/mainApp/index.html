@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>logReg</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/mainApp.css' %}">
+</head>
+<body>
+	{% if messages %}
+	<div class="messagesClass">
+	    {% for message in messages %}
+	    	<p>{{ message }}</p>
+	    {% endfor %}
+	</div>
+	{% endif %}
+
+
+
+	<form action="/new" method="post" class="index_page">
+		<fieldset>
+			{% csrf_token %}
+			<legend>Registration</legend>
+			First Name:<input type="text" name="first_name">
+			Alias:<input type="text" name="alias">
+			Email: <input type="text" name="email">
+			Password: <input type="text" name="password">
+			Re-Enter Password:<input type="text" name="passwordCheck">
+			<input type="submit" value="Register">
+		</fieldset>
+	</form>	
+
+
+	<form action="/signOn" method="post" class="index_page">
+		{% csrf_token %}
+		<fieldset>
+			<legend>Login</legend>
+			Email: <input type="text" name="email">
+			Password: <input type="text" name="password">
+			<input type="submit" >
+		</fieldset>
+	</form>
+
+
+
+</body>
+</html>

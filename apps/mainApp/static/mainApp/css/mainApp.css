@@ -1,0 +1,50 @@
+.main_wrapper {
+	width : 800px;
+	margin: auto;
+}
+.header a, .header h2{
+	display: inline;
+}
+.first_link{
+	margin-left: 100px;
+}
+.left_side {
+	width: 450px;
+}
+.right_side {
+	width: 300px;
+}
+.right_side fieldset a{
+	display: block;
+}
+.right_side fieldset {
+	height:100px;
+	overflow-y: scroll;
+}
+.main_content div{
+	display: inline-block;
+	vertical-align: top;
+}
+.index_page {
+	width:300px;
+	margin: auto;
+	vertical-align: top
+}
+.index_page input {
+	display: block;
+}
+.messagesClass {
+	width:300px;
+	margin:auto;
+	color:red;
+}
+.messagesClassSuccess{
+	width:300px;
+	margin:auto;
+	color:green;
+}
+.book_add_form {
+	width:200px;
+	margin: auto;
+
+}

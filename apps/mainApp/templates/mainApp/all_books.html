@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Books</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/mainApp.css' %}">
+</head>
+<body>
+	<div class=main_wrapper>
+		{% if messages %}
+			<div class="messagesClassSuccess">
+			    {% for message in messages %}
+			    	<p>{{ message }}</p>
+			    {% endfor %}
+			</div>
+		{% endif %}
+		<div class=header>
+			<h2>Welcome, {{user.alias.title}} !</h2>
+			<a href="/book/add" class="first_link">Add Book and Review</a>
+			<a href="/logout">Logout</a>
+		</div> <!-- end of header -->
+		<div class=main_content>
+			<div class=left_side>
+				<h3>Recent Book Reviews:</h3>
+				{% for review in reviews %}
+					<fieldset>
+						<legend>Book Title: <a href="/book/{{review.book.id}}">{{review.book.title}}</a></legend>
+						<h5>rating: {{review.rating}}</h5>
+						<h5><a href="/user/{{review.user.id}}">{{review.user.first_name}}</a>- {{review.review}}</h5>
+						<h6>Posted On {{review.created_at}}</h6>
+					</fieldset>
+
+				{% endfor %}
+
+			</div> <!-- end of book_reviews -->
+			<div class=right_side>
+				<h3>Other Book Reviews:</h3>
+				<fieldset>
+					{% for review in all_reviews %}
+						<a href="/book/{{review.book.id}}">{{review.book.title}}</a>
+					{% endfor %}
+				</fieldset>
+
+			</div> <!-- end of other book reviews -->
+		</div> <!-- end of main content -->
+	</div><!-- end of main_wrapper -->
+</body>
+</html>

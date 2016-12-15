@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Book</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/mainApp.css' %}">
+</head>
+<body>
+	{% if messages %}
+	<div class="messagesClass">
+	    {% for message in messages %}
+	    	<p>{{ message }}</p>
+	    {% endfor %}
+	</div>
+	{% endif %}
+
+	<div class="main_wrapper">
+		<div class="header">
+			<a href="/books" class="first_link">Home</a>
+			<a href="/logout">Logout</a>
+		</div> <!-- end of header -->
+		<div class="main_content">
+			<div class="left_side">
+				<h3>Add a New Book Title and Review:</h3>
+				<form action="/add_new_book" method="post" class="book_add_form">
+					<fieldset>
+						{% csrf_token %}
+						<legend>Add Book</legend>
+						Book Title:<input type="text" name="book_title">
+						Author:<input type="text" name="author">
+						Review: <textarea name="review"></textarea>
+						Rating: 
+						<select name="rating">
+  							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select><br>
+						<input type="submit" value="Register">
+					</fieldset>
+				</form>	
+			</div> 
+		</div> <!-- end of main content -->
+	</div> <!-- end of main wrapper-->
+</body> 
+</html>
