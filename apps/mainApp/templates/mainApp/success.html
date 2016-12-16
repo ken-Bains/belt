@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>success</title>
+</head>
+<body>
+	{% if messages %}
+		<div class="messagesClass">
+		    {% for message in messages %}
+		    	<p>{{ message }}</p>
+		    {% endfor %}
+		</div>
+	{% endif %}
+	<h2>Welcome {{user.first_name}} {{user.last_name}}</h2>
+</body>
+</html>

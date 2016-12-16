@@ -2,8 +2,21 @@
 <html>
 <head>
 	<title>logReg</title>
-	{% load staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/mainApp.css' %}">
+	<style type="text/css" media="screen">
+		form {
+			width:300px;
+			margin: auto;
+			vertical-align: top
+		}
+		form input {
+			display: block;
+		}
+		.messagesClass {
+			width:300px;
+			margin:auto;
+			color:red;
+		}
+	</style>
 </head>
 <body>
 	{% if messages %}
@@ -16,21 +29,21 @@
 
 
 
-	<form action="/new" method="post" class="index_page">
+	<form action="/new" method="post">
 		<fieldset>
 			{% csrf_token %}
-			<legend>Registration</legend>
+			<legend>Register</legend>
 			First Name:<input type="text" name="first_name">
-			Alias:<input type="text" name="alias">
+			Last Name:<input type="text" name="last_name">
 			Email: <input type="text" name="email">
 			Password: <input type="text" name="password">
 			Re-Enter Password:<input type="text" name="passwordCheck">
-			<input type="submit" value="Register">
+			<input type="submit" >
 		</fieldset>
 	</form>	
 
 
-	<form action="/signOn" method="post" class="index_page">
+	<form action="/signOn" method="post">
 		{% csrf_token %}
 		<fieldset>
 			<legend>Login</legend>
